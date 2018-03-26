@@ -7,7 +7,7 @@ namespace ToyRobot
     public class Robot
     {
         //const
-        Dictionary<string, Dictionary<string, string>> TURN =
+        readonly Dictionary<string, Dictionary<string, string>> TURN =
           new Dictionary<string, Dictionary<string, string>>
         {
             { "NORTH", new Dictionary<string, string> {
