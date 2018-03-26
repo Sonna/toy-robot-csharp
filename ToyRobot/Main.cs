@@ -1,5 +1,6 @@
 // A Hello World! program in C#.
 using System;
+using ToyRobot;
 
 namespace HelloWorld
 {
@@ -7,6 +8,7 @@ namespace HelloWorld
     {
         static void Main()
         {
+            Robot robot = new Robot();
             Console.WriteLine("Hello World!");
 
             // Keep the console window open in debug mode.

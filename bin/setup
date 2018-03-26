@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-dotnet restore Main
-dotnet restore Main.Tests
+dotnet restore ToyRobot
+dotnet restore ToyRobot.Tests
