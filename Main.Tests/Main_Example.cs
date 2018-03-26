@@ -1,8 +1,8 @@
 using NUnit.Framework;
 
-namespace Tests
+namespace Main.UnitTests
 {
-    public class Tests
+    public class Main_Example
     {
         [SetUp]
         public void Setup()

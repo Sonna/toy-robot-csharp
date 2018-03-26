@@ -1,5 +1,7 @@
 # README
 
+Create new project:
+
 ```console
 $ dotnet new -i nunit
   Restoring packages for /Users/Sonna/.templateengine/dotnetcli/v1.1.8/scratch/restore.csproj...
@@ -154,6 +156,25 @@ Test execution time: 1.3417 Seconds
 
 ```
 
+Compile `Main.cs`
+
+```console
+$ csc Main.cs
+Microsoft (R) Visual C# Compiler version 2.3.1.61919 (57c81319)
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+```
+
+Run `Main.exe`
+
+```console
+$ mono Main.exe
+Hello World
+```
+
+```console
+```
+
 ## References:
 - [core/2\.0\.6\-download\.md at master · dotnet/core]
   (https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.6-download.md)
@@ -164,3 +185,6 @@ Test execution time: 1.3417 Seconds
 
 - [NuGet Gallery \| dotnet\-test\-nunit 3\.4\.0\-beta\-3]
   (https://www.nuget.org/packages/dotnet-test-nunit/)
+
+- [docs/samples/core/getting\-started/unit\-testing\-using\-dotnet\-test at master · dotnet/docs]
+  (https://github.com/dotnet/docs/tree/master/samples/core/getting-started/unit-testing-using-dotnet-test)

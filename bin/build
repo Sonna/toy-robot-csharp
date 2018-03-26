@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+csc Main/Main.cs -out bin/Main.exe
