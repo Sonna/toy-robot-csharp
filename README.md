@@ -176,9 +176,11 @@ Hello World
 ```
 
 ## References:
+- [microsoft/dotnet \- Docker Hub]
+  (https://hub.docker.com/r/microsoft/dotnet/)
+
 - [core/2\.0\.6\-download\.md at master · dotnet/core]
   (https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.6-download.md)
-
 
 - [docs/samples/core/getting\-started/unit\-testing\-using\-nunit at master · dotnet/docs]
   (https://github.com/dotnet/docs/tree/master/samples/core/getting-started/unit-testing-using-nunit)
@@ -188,3 +190,6 @@ Hello World
 
 - [docs/samples/core/getting\-started/unit\-testing\-using\-dotnet\-test at master · dotnet/docs]
   (https://github.com/dotnet/docs/tree/master/samples/core/getting-started/unit-testing-using-dotnet-test)
+
+- [dotnet build command \- \.NET Core CLI \| Microsoft Docs]
+  (https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build?tabs=netcore2x)
