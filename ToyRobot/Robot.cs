@@ -1,10 +1,34 @@
 // A Hello World! program in C#.
 using System;
+using System.Collections.Generic;
 
 namespace ToyRobot
 {
     public class Robot
     {
+        //const
+        Dictionary<string, Dictionary<string, string>> TURN =
+          new Dictionary<string, Dictionary<string, string>>
+        {
+            { "NORTH", new Dictionary<string, string> {
+                    { "LEFT", "WEST" }, { "RIGHT", "EAST" }
+                }
+            },
+            { "EAST", new Dictionary<string, string> {
+                    { "LEFT", "NORTH" }, { "RIGHT", "SOUTH" }
+                }
+            },
+            { "SOUTH", new Dictionary<string, string> {
+                    { "LEFT", "EAST" }, { "RIGHT", "WEST" }
+                }
+            },
+            { "WEST", new Dictionary<string, string> {
+                    { "LEFT", "SOUTH" }, { "RIGHT", "NORTH" }
+                }
+            }
+        };
+
+
         private int x;
         private int y;
         private string facing;
@@ -33,6 +57,10 @@ namespace ToyRobot
 
         public void report() {
            Console.WriteLine("{0},{1},{2}", X, Y, Facing);
+        }
+
+        public void left() {
+           this.facing = TURN[facing]["LEFT"];
         }
     }
 }

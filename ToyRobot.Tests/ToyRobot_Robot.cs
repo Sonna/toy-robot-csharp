@@ -52,5 +52,45 @@ namespace ToyRobot.UnitTests
             Console.SetOut(oldConsoleOut);
             strWriter.Close();
         }
+
+        [Test]
+        public void TestLeft() {
+            Robot robot = new Robot();
+            robot.left();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("WEST", robot.Facing);
+        }
+
+        [Test]
+        public void TestLeftFromWEST() {
+            Robot robot = new Robot(0, 0, "WEST");
+            robot.left();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("SOUTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestLeftFromSOUTH() {
+            Robot robot = new Robot(0, 0, "SOUTH");
+            robot.left();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("EAST", robot.Facing);
+        }
+
+        [Test]
+        public void TestLeftFromEAST() {
+            Robot robot = new Robot(0, 0, "EAST");
+            robot.left();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("NORTH", robot.Facing);
+        }
     }
 }
