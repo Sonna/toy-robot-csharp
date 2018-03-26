@@ -1,0 +1,15 @@
+sudo: required
+
+language: c#
+
+services:
+- docker
+
+before_install:
+- docker pull microsoft/dotnet:latest
+
+script:
+- docker run --rm -v $(pwd):/app -w /app microsoft/dotnet:latest bash -c "dotnet restore ToyRobot"
+- docker run --rm -v $(pwd):/app -w /app microsoft/dotnet:latest bash -c "dotnet restore ToyRobot.Tests"
+- docker run --rm -v $(pwd):/app -w /app microsoft/dotnet:latest bash -c "dotnet test ToyRobot.Tests"
+- docker run --rm -v $(pwd):/app -w /app microsoft/dotnet:latest bash -c "csc ToyRobot/Main.cs -out bin/Main.exe"
