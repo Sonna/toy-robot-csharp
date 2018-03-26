@@ -1,0 +1,13 @@
+image: microsoft/dotnet:latest
+
+before_script:
+- dotnet restore ToyRobot
+- dotnet restore ToyRobot.Tests
+
+build:
+  script:
+  - csc ToyRobot/Main.cs -out bin/Main.exe
+
+test:
+  script:
+  - dotnet test ToyRobot.Tests
