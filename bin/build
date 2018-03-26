@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-csc ToyRobot/Main.cs -out bin/Main.exe
+# csc ToyRobot/Main.cs -out bin/Main.exe
+dotnet build ToyRobot --output bin/Main.exe

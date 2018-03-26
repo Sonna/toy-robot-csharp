@@ -7,7 +7,7 @@ jobs:
     - checkout
     - run: dotnet restore ToyRobot
     - run: dotnet restore ToyRobot.Tests
-    - run: csc ToyRobot/Main.cs -out bin/Main.exe
+    - run: dotnet build ToyRobot --output bin/Main.exe
 
   test:
     docker:

@@ -6,7 +6,7 @@ before_script:
 
 build:
   script:
-  - csc ToyRobot/Main.cs -out bin/Main.exe
+  - dotnet build ToyRobot --output bin/Main.exe
 
 test:
   script:
