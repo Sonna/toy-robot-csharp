@@ -31,7 +31,7 @@ namespace ToyRobot
            this.facing = facing;
         }
 
-        public report() {
+        public void report() {
            Console.WriteLine("{0},{1},{2}", X, Y, Facing);
         }
     }
