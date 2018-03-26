@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: microsoft/dotnet:latest
+    steps:
+    - checkout
+    - run: dotnet restore ToyRobot
+    - run: dotnet restore ToyRobot.Tests
+    - run: csc ToyRobot/Main.cs -out bin/Main.exe
+
+  test:
+    docker:
+    - image: microsoft/dotnet:latest
+    steps:
+    - checkout
+    - run: dotnet restore ToyRobot
+    - run: dotnet restore ToyRobot.Tests
+    - run: dotnet test ToyRobot.Tests
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+    - build
+    - test
