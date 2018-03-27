@@ -62,5 +62,9 @@ namespace ToyRobot
         public void left() {
            this.facing = TURN[facing]["LEFT"];
         }
+
+        public void right() {
+           this.facing = TURN[facing]["RIGHT"];
+        }
     }
 }
