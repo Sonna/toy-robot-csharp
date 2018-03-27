@@ -1,195 +1,166 @@
-# README
+Toy Robot Simulator
+===================
 
-Create new project:
+Description
+-----------
 
-```console
-$ dotnet new -i nunit
-  Restoring packages for /Users/Sonna/.templateengine/dotnetcli/v1.1.8/scratch/restore.csproj...
-  Installing runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple 4.3.0.
-  Installing runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing NUnit 3.10.1.
-  Installing runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing NETStandard.Library 1.6.1.
-  Installing Microsoft.NETCore.Platforms 1.1.0.
-  Installing System.Reflection.TypeExtensions 4.3.0.
-  Installing System.AppContext 4.3.0.
-  Installing System.Reflection.Emit 4.3.0.
-  Installing System.ObjectModel 4.3.0.
-  Installing System.Reflection.Emit.ILGeneration 4.3.0.
-  Installing System.Security.Cryptography.Primitives 4.3.0.
-  Installing System.Reflection.Emit.Lightweight 4.3.0.
-  Installing System.Runtime.Numerics 4.3.0.
-  Installing System.Threading.Tasks.Extensions 4.3.0.
-  Installing System.IO.FileSystem.Primitives 4.3.0.
-  Installing System.Linq 4.3.0.
-  Installing System.Collections.Concurrent 4.3.0.
-  Installing System.Text.RegularExpressions 4.3.0.
-  Installing System.Globalization.Calendars 4.3.0.
-  Installing System.Diagnostics.Tools 4.3.0.
-  Installing System.Diagnostics.Debug 4.3.0.
-  Installing System.Net.Sockets 4.3.0.
-  Installing System.Console 4.3.0.
-  Installing Microsoft.Win32.Primitives 4.3.0.
-  Installing System.Reflection.Extensions 4.3.0.
-  Installing System.Resources.ResourceManager 4.3.0.
-  Installing System.IO.FileSystem 4.3.0.
-  Installing System.Runtime.Handles 4.3.0.
-  Installing System.Reflection.Primitives 4.3.0.
-  Installing System.Globalization 4.3.0.
-  Installing System.Diagnostics.Tracing 4.3.0.
-  Installing System.Reflection 4.3.0.
-  Installing System.Collections 4.3.0.
-  Installing System.Net.Primitives 4.3.0.
-  Installing System.Threading.Timer 4.3.0.
-  Installing System.IO 4.3.0.
-  Installing System.Text.Encoding.Extensions 4.3.0.
-  Installing System.Text.Encoding 4.3.0.
-  Installing System.Runtime.InteropServices.RuntimeInformation 4.3.0.
-  Installing System.IO.Compression.ZipFile 4.3.0.
-  Installing System.IO.Compression 4.3.0.
-  Installing System.Security.Cryptography.Encoding 4.3.0.
-  Installing System.Security.Cryptography.Algorithms 4.3.0.
-  Installing System.Threading 4.3.0.
-  Installing System.Runtime.Extensions 4.3.0.
-  Installing System.Xml.XDocument 4.3.0.
-  Installing System.Threading.Tasks 4.3.0.
-  Installing System.Net.Http 4.3.0.
-  Installing System.Security.Cryptography.X509Certificates 4.3.0.
-  Installing System.Xml.ReaderWriter 4.3.0.
-  Installing System.Runtime.InteropServices 4.3.0.
-  Installing System.Linq.Expressions 4.3.0.
-  Installing System.Runtime 4.3.0.
-  Installing Microsoft.NETCore.Targets 1.1.0.
-  Installing runtime.native.System 4.3.0.
-  Installing System.Buffers 4.3.0.
-  Installing runtime.native.System.IO.Compression 4.3.0.
-  Installing runtime.native.System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing runtime.native.System.Security.Cryptography.Apple 4.3.0.
-  Installing runtime.native.System.Net.Http 4.3.0.
-  Installing System.Security.Cryptography.OpenSsl 4.3.0.
-  Installing System.Diagnostics.DiagnosticSource 4.3.0.
-  Installing System.Globalization.Extensions 4.3.0.
-  Installing System.Security.Cryptography.Csp 4.3.0.
-  Installing System.Security.Cryptography.Cng 4.3.0.
-  Generating MSBuild file /Users/Sonna/.templateengine/dotnetcli/v1.1.8/scratch/obj/restore.csproj.nuget.g.props.
-  Generating MSBuild file /Users/Sonna/.templateengine/dotnetcli/v1.1.8/scratch/obj/restore.csproj.nuget.g.targets.
-  Restore completed in 1.24 min for /Users/Sonna/.templateengine/dotnetcli/v1.1.8/scratch/restore.csproj.
+- The application is a simulation of a toy robot moving on a square tabletop,
+  of dimensions 5 units x 5 units.
+- There are no other obstructions on the table surface.
+- The robot is free to roam around the surface of the table, but must be
+  prevented from falling to destruction. Any movement that would result in the
+  robot falling from the table must be prevented, however further valid
+  movement commands must still be allowed.
 
+Create an application that can read in commands of the following form:
 
-Templates                                         Short Name       Language          Tags
----------------------------------------------------------------------------------------------------
-Console Application                               console          [C#], F#, VB      Common/Console
-Class library                                     classlib         [C#], F#, VB      Common/Library
-Unit Test Project                                 mstest           [C#], F#, VB      Test/MSTest
-NUnit 3 Test Project                              nunit            [C#], F#, VB      Test/NUnit
-xUnit Test Project                                xunit            [C#], F#, VB      Test/xUnit
-ASP.NET Core Empty                                web              [C#], F#          Web/Empty
-ASP.NET Core Web App (Model-View-Controller)      mvc              [C#], F#          Web/MVC
-ASP.NET Core Web API                              webapi           [C#], F#          Web/WebAPI
-global.json file                                  globaljson                         Config
-Nuget Config                                      nugetconfig                        Config
-Web Config                                        webconfig                          Config
-Solution File                                     sln                                Solution
+    PLACE X,Y,F
+    MOVE
+    LEFT
+    RIGHT
+    REPORT
+
+- PLACE will put the toy robot on the table in position X,Y and facing NORTH,
+  SOUTH, EAST or WEST.
+- The origin (0,0) can be considered to be the SOUTH WEST most corner.
+- The first valid command to the robot is a PLACE command, after that, any
+  sequence of commands may be issued, in any order, including another PLACE
+  command. The application should discard all commands in the sequence until
+  a valid PLACE command has been executed.
+- MOVE will move the toy robot one unit forward in the direction it is
+  currently facing.
+- LEFT and RIGHT will rotate the robot 90 degrees in the specified direction
+  without changing the position of the robot.
+- REPORT will announce the X,Y and F of the robot. This can be in any form,
+  but standard output is sufficient.
+
+- A robot that is not on the table can choose the ignore the MOVE, LEFT, RIGHT
+  and REPORT commands.
+- Input can be from a file, or from standard input, as the developer chooses.
+- Provide test data to exercise the application.
+- The application must be a command line application.
+
+Constraints
+-----------
+
+- The toy robot must not fall off the table during movement. This also
+  includes the initial placement of the toy robot.
+- Any move that would cause the robot to fall must be ignored.
+
+Example Input and Output
+------------------------
+
+### Example a
+
+    PLACE 0,0,NORTH
+    MOVE
+    REPORT
+
+Expected output:
+
+    0,1,NORTH
+
+### Example b
+
+    PLACE 0,0,NORTH
+    LEFT
+    REPORT
+
+Expected output:
+
+    0,0,WEST
+
+### Example c
+
+    PLACE 1,2,EAST
+    MOVE
+    MOVE
+    LEFT
+    MOVE
+    REPORT
+
+Expected output
+
+    3,3,NORTH
 
 
-Examples:
-    dotnet new mvc --framework netcoreapp1.1 --auth Individual
-    dotnet new nunit --framework netcoreapp2.0
-    dotnet new --help
+Deliverables
+------------
+
+Please provide your source code, and any test code/data you using in
+developing your solution.
+
+Please engineer your solution to a standard you consider suitable for
+production. It is not required to provide any graphical output showing the
+movement of the toy robot.
+
+Please do not put your name in any of the submitted code since this makes it
+harder for us to review your submission anonymously.
+
+<!--
+
+Installation
+============
+
+-->
+
+Usage
+-----
+
+To use the `toy-robot` application, either execute the script and start typing
+in commands; e.g.
+
+```shell
+    $ bin/main
+
+    REPORT
+    "0,0,NORTH"
+    PLACE 1,2,SOUTH
+    REPORT
+    "1,2,SOUTH"
+    MOVE
+    MOVE
+    RIGHT
+    REPORT
+    "1,0,WEST"
+    EXIT
 ```
 
-_After installing NUnit Test Project template_
+Or execute the script with the path to file that will be used as input; e.g.
 
-```console
-$ dotnet new nunit
-The template "NUnit 3 Test Project" was created successfully.
+```shell
+    $ bin/main README.md
 
-Processing post-creation actions...
-Running 'dotnet restore' on /Users/Sonna/Projects/csharp/unit-testing-using-nunit/unit-testing-using-nunit.csproj...
-/usr/local/share/dotnet/sdk/1.1.8/Sdks/Microsoft.NET.Sdk/build/Microsoft.NET.TargetFrameworkInference.targets(112,5): error : The current .NET SDK does not support targeting .NET Core 2.0.  Either target .NET Core 1.1 or lower, or use a version of the .NET SDK that supports .NET Core 2.0. [/Users/Sonna/Projects/csharp/unit-testing-using-nunit/unit-testing-using-nunit.csproj]
-
-
-Restore failed.
-Post action failed.
-Description: Restore NuGet packages required by this project.
-Manual instructions: Run 'dotnet restore'
-```
-
-After installing a newer version of DotNet Core (not the Development SDK).
-
-```console
-$ dotnet test
-
-Welcome to .NET Core!
----------------------
-Learn more about .NET Core @ https://aka.ms/dotnet-docs. Use dotnet --help to see available commands or go to https://aka.ms/dotnet-cli-docs.
-
-Telemetry
---------------
-The .NET Core tools collect usage data in order to improve your experience. The data is anonymous and does not include command-line arguments. The data is collected by Microsoft and shared with the community.
-You can opt out of telemetry by setting a DOTNET_CLI_TELEMETRY_OPTOUT environment variable to 1 using your favorite shell.
-You can read more about .NET Core tools telemetry @ https://aka.ms/dotnet-cli-telemetry.
-Build started, please wait...
-Build completed.
-
-Test run for /Users/Sonna/Projects/csharp/unit-testing-using-nunit/bin/Debug/netcoreapp2.0/unit-testing-using-nunit.dll(.NETCoreApp,Version=v2.0)
-Microsoft (R) Test Execution Command Line Tool Version 15.6.0-preview-20180109-01
-Copyright (c) Microsoft Corporation.  All rights reserved.
-
-Starting test execution, please wait...
-NUnit Adapter 3.10.0.21: Test execution started
-Running all tests in /Users/Sonna/Projects/csharp/unit-testing-using-nunit/bin/Debug/netcoreapp2.0/unit-testing-using-nunit.dll
-NUnit3TestExecutor converted 1 of 1 NUnit test cases
-NUnit Adapter 3.10.0.21: Test execution complete
-
-Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
-Test Run Successful.
-Test execution time: 1.3417 Seconds
+    "0,1,NORTH"
+    "0,1,NORTH"
+    "0,0,WEST"
+    "3,3,NORTH"
+    "0,0,NORTH"
+    "1,2,SOUTH"
+    "1,0,WEST"
 
 ```
 
-Compile `Main.cs`
+All given User inputs should match what was specified in the Toy Robot
+specification; meaning its case-sensitive, ignores invalid commands, reports
+back to the user when asked `REPORT`, etc. However, it also implements a `EXIT`
+command in order escape the application/script outside of the regular terminate
+command `Ctrl + C`.
 
-```console
-$ csc Main.cs
-Microsoft (R) Visual C# Compiler version 2.3.1.61919 (57c81319)
-Copyright (C) Microsoft Corporation. All rights reserved.
+Caveats
+-------
 
-```
+- The square tabletop, of dimensions 5 units x 5 units, assumes a Range of
+  `(0...5)` not `(0..5)`; e.g.
 
-Run `Main.exe`
+  ```ruby
+      (0...5).to_a  # => [0, 1, 2, 3, 4]
+      (0...5).count # => 5
 
-```console
-$ mono Main.exe
-Hello World
-```
+      (0..5).to_a  # => [0, 1, 2, 3, 4, 5]
+      (0..5).count # => 6
+  ```
 
-```console
-```
-
-## References:
-- [microsoft/dotnet \- Docker Hub]
-  (https://hub.docker.com/r/microsoft/dotnet/)
-
-- [core/2\.0\.6\-download\.md at master · dotnet/core]
-  (https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.6-download.md)
-
-- [docs/samples/core/getting\-started/unit\-testing\-using\-nunit at master · dotnet/docs]
-  (https://github.com/dotnet/docs/tree/master/samples/core/getting-started/unit-testing-using-nunit)
-
-- [NuGet Gallery \| dotnet\-test\-nunit 3\.4\.0\-beta\-3]
-  (https://www.nuget.org/packages/dotnet-test-nunit/)
-
-- [docs/samples/core/getting\-started/unit\-testing\-using\-dotnet\-test at master · dotnet/docs]
-  (https://github.com/dotnet/docs/tree/master/samples/core/getting-started/unit-testing-using-dotnet-test)
-
-- [dotnet build command \- \.NET Core CLI \| Microsoft Docs]
-  (https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build?tabs=netcore2x)
+  Since counting starts at `0` from the origin, it means the fifth value would
+  be `4` not `5` (which in this case would be the sixth value and create a
+  tabletop of 6 x 6 units, with 36 possible positions, rather than 25).
