@@ -133,5 +133,124 @@ namespace ToyRobot.UnitTests
             Assert.AreEqual("NORTH", robot.Facing);
         }
 
+        [Test]
+        public void TestMove() {
+            Robot robot = new Robot();
+            robot.move();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(1, robot.Y);
+            Assert.AreEqual("NORTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveEAST() {
+            Robot robot = new Robot(0, 0, "EAST");
+            robot.move();
+
+            Assert.AreEqual(1, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("EAST", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveSOUTH() {
+            Robot robot = new Robot(0, 0, "SOUTH");
+            robot.move();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("SOUTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveWEST() {
+            Robot robot = new Robot(0, 0, "WEST");
+            robot.move();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("WEST", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesNotFallOffTableFrom04WEST() {
+            Robot robot = new Robot(0, 4, "WEST");
+            robot.move();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(4, robot.Y);
+            Assert.AreEqual("WEST", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesNotFallOffTableFrom04NORTH() {
+            Robot robot = new Robot(0, 4, "NORTH");
+            robot.move();
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(4, robot.Y);
+            Assert.AreEqual("NORTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesNotFallOffTableFrom44NORTH() {
+            Robot robot = new Robot(4, 4, "NORTH");
+            robot.move();
+
+            Assert.AreEqual(4, robot.X);
+            Assert.AreEqual(4, robot.Y);
+            Assert.AreEqual("NORTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesNotFallOffTableFrom44EAST() {
+            Robot robot = new Robot(4, 4, "EAST");
+            robot.move();
+
+            Assert.AreEqual(4, robot.X);
+            Assert.AreEqual(4, robot.Y);
+            Assert.AreEqual("EAST", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesNotFallOffTableFrom40EAST() {
+            Robot robot = new Robot(4, 0, "EAST");
+            robot.move();
+
+            Assert.AreEqual(4, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("EAST", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesNotFallOffTableFrom40SOUTH() {
+            Robot robot = new Robot(4, 0, "SOUTH");
+            robot.move();
+
+            Assert.AreEqual(4, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("SOUTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesFrom33SOUTH() {
+            Robot robot = new Robot(3, 3, "SOUTH");
+            robot.move();
+
+            Assert.AreEqual(3, robot.X);
+            Assert.AreEqual(2, robot.Y);
+            Assert.AreEqual("SOUTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestMoveDoesFrom22WEST() {
+            Robot robot = new Robot(2, 2, "WEST");
+            robot.move();
+
+            Assert.AreEqual(1, robot.X);
+            Assert.AreEqual(2, robot.Y);
+            Assert.AreEqual("WEST", robot.Facing);
+        }
     }
 }
