@@ -98,5 +98,28 @@ namespace ToyRobot
             this.y = Int32.Parse(coordinates[1]);
             this.facing = coordinates[2];
         }
+
+        public void exec(string rawCommand, string rawArgs = "") {
+            switch (rawCommand) {
+                case "PLACE":
+                    place(rawArgs);
+                    break;
+                case "REPORT":
+                    report();
+                    break;
+                case "LEFT":
+                    left();
+                    break;
+                case "RIGHT":
+                    right();
+                    break;
+                case "MOVE":
+                    move();
+                    break;
+                default:
+                    // Do Nothing
+                    break;
+            }
+        }
     }
 }
