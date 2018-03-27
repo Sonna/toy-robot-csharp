@@ -272,5 +272,61 @@ namespace ToyRobot.UnitTests
             Assert.AreEqual(4, robot.Y);
             Assert.AreEqual("NORTH", robot.Facing);
         }
+
+        [Test]
+        public void TestExecPlace() {
+            Robot robot = new Robot();
+            robot.exec("PLACE", "3,3,SOUTH");
+
+            Assert.AreEqual(3, robot.X);
+            Assert.AreEqual(3, robot.Y);
+            Assert.AreEqual("SOUTH", robot.Facing);
+        }
+
+        [Test]
+        public void TestExecReport() {
+            TextWriter oldConsoleOut = Console.Out;
+            StringWriter strWriter = new StringWriter();
+            Console.SetOut(strWriter);
+
+            Robot robot = new Robot();
+            robot.exec("REPORT");
+
+            Assert.AreEqual("0,0,NORTH\n", strWriter.ToString());
+
+            // cleanup
+            Console.SetOut(oldConsoleOut);
+            strWriter.Close();
+        }
+
+        [Test]
+        public void TestExecLeft() {
+            Robot robot = new Robot();
+            robot.exec("LEFT");
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("WEST", robot.Facing);
+        }
+
+        [Test]
+        public void TestExecRight() {
+            Robot robot = new Robot();
+            robot.exec("RIGHT");
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(0, robot.Y);
+            Assert.AreEqual("EAST", robot.Facing);
+        }
+
+        [Test]
+        public void TestExecMove() {
+            Robot robot = new Robot();
+            robot.exec("MOVE");
+
+            Assert.AreEqual(0, robot.X);
+            Assert.AreEqual(1, robot.Y);
+            Assert.AreEqual("NORTH", robot.Facing);
+        }
     }
 }

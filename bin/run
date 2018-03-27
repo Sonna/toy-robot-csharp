@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-mono Main.exe
+# mono bin/Main.exe $1
+dotnet ToyRobot/bin/Debug/netcoreapp2.0/osx.10.11-x64/Main.dll $1
