@@ -252,5 +252,25 @@ namespace ToyRobot.UnitTests
             Assert.AreEqual(2, robot.Y);
             Assert.AreEqual("WEST", robot.Facing);
         }
+
+        [Test]
+        public void TestPlace() {
+            Robot robot = new Robot();
+            robot.place("2,3,EAST");
+
+            Assert.AreEqual(2, robot.X);
+            Assert.AreEqual(3, robot.Y);
+            Assert.AreEqual("EAST", robot.Facing);
+        }
+
+        [Test]
+        public void TestPlaceAt44NORTH() {
+            Robot robot = new Robot();
+            robot.place("4,4,NORTH");
+
+            Assert.AreEqual(4, robot.X);
+            Assert.AreEqual(4, robot.Y);
+            Assert.AreEqual("NORTH", robot.Facing);
+        }
     }
 }

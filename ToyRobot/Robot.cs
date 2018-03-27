@@ -87,5 +87,16 @@ namespace ToyRobot
                 this.y -= MOVE[this.facing]["y"];
             }
         }
+
+        public void place(string rawCoordinates) {
+            string[] delimiter = {","};
+            string[] coordinates = rawCoordinates.Split(
+                delimiter, StringSplitOptions.RemoveEmptyEntries
+            );
+
+            this.x = Int32.Parse(coordinates[0]);
+            this.y = Int32.Parse(coordinates[1]);
+            this.facing = coordinates[2];
+        }
     }
 }
