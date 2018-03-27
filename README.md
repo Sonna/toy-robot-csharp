@@ -111,7 +111,7 @@ To use the `toy-robot` application, either execute the script and start typing
 in commands; e.g.
 
 ```shell
-    $ bin/main
+    $ bin/run
 
     REPORT
     "0,0,NORTH"
@@ -129,7 +129,7 @@ in commands; e.g.
 Or execute the script with the path to file that will be used as input; e.g.
 
 ```shell
-    $ bin/main README.md
+    $ bin/run README.md
 
     "0,1,NORTH"
     "0,1,NORTH"
